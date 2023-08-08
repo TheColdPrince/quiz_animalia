@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animalia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000000;
+        }
+
+        .quiz-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #ccc100;
+        }
+
+        .question {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .options label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .options input {
+            margin-right: 5px;
+        }
+
+        .result {
+            font-size: 30px;
+            text-align: center;
+            margin-top: 30px;
+            font-weight: bold;
+        }
+        
+            button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            text-align: center;
+            background-color: #008080; /* Teal color */
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out; /* Smooth hover transition */
+        }
+
+        .check-btn:hover {
+            background-color: #006666; /* Darker teal on hover */
+        }
+
+    </style>
+    <script>
+        function checkQuiz(quizNumber, correctAnswer) {
+            var radios = document.getElementsByName("quiz" + quizNumber);
+            var result = document.getElementById("result" + quizNumber);
+            for (var i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    if (radios[i].value == correctAnswer) {
+                        result.innerHTML = "Correct!";
+                        result.style.color = "green";
+                        updateScore(1);
+                    } else {
+                        result.innerHTML = "Incorrect.";
+                        result.style.color = "red";
+                    }
+                    break;
+                }
+            }
+        }
+
+        var score = 0;
+
+        function updateScore(value) {
+            score += value;
+            document.getElementById("total-score").innerHTML = "Score: " + score;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="quiz-container">
+    <center><h1>Quiz Time!</h1></center>
+        <!-- Question 1 -->
+        <div class="question">
+            <p>1. What is the function of axolotl's external gills?</p>
+            <div class="options">
+                <label><input type="radio" name="quiz1" value="1">a) Locomotion</label>
+                <label><input type="radio" name="quiz1" value="2">b) Respiration</label>
+                <label><input type="radio" name="quiz1" value="3">c) Digestion</label>
+            </div>
+            <button type="button" onclick="checkQuiz(1, 2)">Check</button>
+            <p id="result1" class="result"></p>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="question">
+            <p>2. Which animal has a radula used for feeding?</p>
+            <div class="options">
+                <label><input type="radio" name="quiz2" value="1">a) Capybara</label>
+                <label><input type="radio" name="quiz2" value="2">b) Blue Dragon Sea Slug</label>
+                <label><input type="radio" name="quiz2" value="3">c) Pangolin</label>
+            </div>
+            <button type="button" onclick="checkQuiz(2, 2)">Check</button>
+            <p id="result2" class="result"></p>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="question">
+            <p>3. What is the primary function of a capybara's large incisors?</p>
+            <div class="options">
+                <label><input type="radio" name="quiz3" value="1">a) Climbing</label>
+                <label><input type="radio" name="quiz3" value="2">b) Communication</label>
+                <label><input type="radio" name="quiz3" value="3">c) Defense</label>
+            </div>
+            <button type="button" onclick="checkQuiz(3, 3)">Check</button>
+            <p id="result3" class="result"></p>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="question">
+            <p>4. Which part of a pangolin's body is covered in protective scales?</p>
+            <div class="options">
+                <label><input type="radio" name="quiz4" value="1">a) Tail</label>
+                <label><input type="radio" name="quiz4" value="2">b) Back</label>
+                <label><input type="radio" name="quiz4" value="3">c) Ears</label>
+            </div>
+            <button type="button" onclick="checkQuiz(4, 2)">Check</button>
+            <p id="result4" class="result"></p>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="question">
+            <p>5. What unique adaptation allows a blue dragon sea slug to float on the water's surface?</p>
+            <div class="options">
+                <label><input type="radio" name="quiz5" value="1">a) Air sacs</label>
+                <label><input type="radio" name="quiz5" value="2">b) Buoyant feathers</label>
+                <label><input type="radio" name="quiz5" value="3">c) Gas-filled chambers</label>
+            </div>
+            <button type="button" onclick="checkQuiz(5, 3)">Check</button>
+            <p id="result5" class="result"></p>
+        </div>
+
+        <!-- Question 6 -->
+        <div class="question">
+            <p>6. How does a seal use its whiskers in the water?</p>
+            <div class="options">
+                <label><input type="radio" name="quiz6" value="1">a) For mating displays</label>
+                <label><input type="radio" name="quiz6" value="2">b) For camouflage</label>
+                <label><input type="radio" name="quiz6" value="3">c) For detecting prey</label>
+            </div>
+            <button type="button" onclick="checkQuiz(6, 3)">Check</button>
+            <p id="result6" class="result"></p>
+        </div>
+
+        <!-- Question 7 -->
+        <div class="question">
+            <p>7. Which animal is known for its webbed feet used for swimming?</p>
+            <div class="options">
+                <label><input type="radio" name="quiz7" value="1">a) Pangolin</label>
+                <label><input type="radio" name="quiz7" value="2">b) Blue Dragon Sea Slug</label>
+                <label><input type="radio" name="quiz7" value="3">c) Seal</label>
+            </div>
+            <button type="button" onclick="checkQuiz(7, 3)">Check</button>
+            <p id="result7" class="result"></p>
+        </div>
+
+        <!-- Question 8 -->
+        <div class="question">
+            <p>8. What is the purpose of an axolotl's caudal fin?</p>
+            <div class="options">
+                <label><input type="radio" name="quiz8" value="1">a) Locomotion on land</label>
+                <label><input type="radio" name="quiz8" value="2">b) Breathing underwater</label>
+                <label><input type="radio" name="quiz8" value="3">c) Balance and swimming</label>
+            </div>
+            <button type="button" onclick="checkQuiz(8, 3)">Check</button>
+            <p id="result8" class="result"></p>
+        </div>
+
+        <!-- Question 9 -->
+        <div class="question">
+            <p>9. Which animal has specialized molars for grinding tough vegetation?</p>
+            <div class="options">
+                <label><input type="radio" name="quiz9" value="1">a) Blue Dragon Sea Slug</label>
+                <label><input type="radio" name="quiz9" value="2">b) Pangolin</label>
+                <label><input type="radio" name="quiz9" value="3">c) Capybara</label>
+            </div>
+            <button type="button" onclick="checkQuiz(9, 3)">Check</button>
+            <p id="result9" class="result"></p>
+        </div>
+
+        <!-- Question 10 -->
+        <div class="question">
+            <p>10. What feature allows a pangolin to curl up into a protective ball?</p>
+            <div class="options">
+                <label><input type="radio" name="quiz10" value="1">a) Elongated neck</label>
+                <label><input type="radio" name="quiz10" value="2">b) Large ears</label>
+                <label><input type="radio" name="quiz10" value="3">c) Articulated tail</label>
+            </div>
+            <button type="button" onclick="checkQuiz(10, 3)">Check</button>
+            <p id="result10" class="result"></p>
+        </div>
+
+        <p id="total-score" class="result">Score: 0</p>
+    </div>
+</body>
+
+</html>
